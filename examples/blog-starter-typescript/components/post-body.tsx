@@ -1,10 +1,14 @@
 import markdownStyles from './markdown-styles.module.css'
+import LoginForm from './login-form'
 
 type Props = {
   content: string
+  premium: string
+  isLoggedIn: boolean
 }
 
-const PostBody = ({ content }: Props) => {
+const PostBody = ({ content, premium, isLoggedIn }: Props) => {
+  if (premium && !isLoggedIn) return <LoginForm />
   return (
     <div className="max-w-2xl mx-auto">
       <div
